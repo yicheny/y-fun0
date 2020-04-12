@@ -10,6 +10,7 @@ function liveTimeFor(brithday) {
     return todayMs - birthdayMs
 }
 
-console.log(''.concat('出生至今我活了：',compose(daysFor,liveTimeFor)('1996-11-30'),'天'));
-console.log(''.concat('出生至今我活了：',compose(monthsFor,liveTimeFor)('1996-11-30'),'月'));
-console.log(''.concat('出生至今我活了：',compose(yearsFor,liveTimeFor)('1996-11-30'),'年'));
+const birthDay = '1996-11-30';
+console.log(''.concat('出生至今我活了：',compose(daysFor,liveTimeFor)(birthDay),'天'));
+console.log(''.concat('出生至今我活了：',compose(monthsFor,liveTimeFor)(birthDay),'月'));
+console.log(''.concat('出生至今我活了：',compose(yearsFor,liveTimeFor)(birthDay),'年'));
