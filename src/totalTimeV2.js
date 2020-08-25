@@ -1,11 +1,7 @@
 const fs = require('fs');
 
-const source = fs.readFileSync('../data/studyTimeData-2020.txt','utf-8')
-const info = createInfo(source);
-const times = info.map(x=>x.time);
-printTimeInfo(times,'今年');
-printTimeInfo(times.slice(-30),'本月');
-printTimeInfo(times.slice(-7),'最近一周');
+// printInfo('../data/studyTimeData-2019.txt');
+printInfo('../data/studyTimeData-2020.txt');
 
 //函数
 function createInfo(source){
@@ -29,4 +25,14 @@ function printTimeInfo(times,prefix){
     console.log(`${prefix}学习共花费：`.concat(time_s, '分钟'));
     console.log(`${prefix}学习共花费：`.concat(time_h, '小时'));
     console.log('共计：'.concat(time_h));
+}
+
+function printInfo(path){
+    console.log(path)
+    const source = fs.readFileSync(path,'utf-8')
+    const info = createInfo(source);
+    const times = info.map(x=>x.time);
+    printTimeInfo(times,'今年');
+    printTimeInfo(times.slice(-30),'本月');
+    printTimeInfo(times.slice(-7),'最近一周');
 }
