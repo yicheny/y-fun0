@@ -24,6 +24,8 @@ function printTimeInfo(times,prefix){
     const time_h = (time_s/60).toFixed(2);
     console.log(`${prefix}学习共花费：`.concat(time_s, '分钟'));
     console.log(`${prefix}学习共花费：`.concat(time_h, '小时'));
+    console.log(`${prefix}平均学习时间：`.concat((time_s/times.length).toFixed(0), '分钟'));
+    console.log(`${prefix}平均学习时间：`.concat((time_h/times.length).toFixed(2), '小时'));
     console.log('共计：'.concat(time_h));
 }
 
