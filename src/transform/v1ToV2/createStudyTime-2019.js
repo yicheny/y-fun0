@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-const source = fs.readFileSync('../data/studyTime-2019.txt','utf-8')
+const source = fs.readFileSync('../../../data/v1/studyTime-2019.txt','utf-8')
 const timeList = source.split('\r\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
 
-// saveTimeData();
-totalTime();
+saveTimeData();
+// totalTime();
 
 function totalTime(){
     const res = timeList.reduce((acc,x)=>acc + x*60,0);
@@ -20,9 +20,9 @@ function saveTimeData(){
         return acc.concat(`${formatDate(date)} === ${parseInt(x*60)} === 未记录信息`);
     },[])
 
-    fs.writeFileSync('../data/studyTimeData-2019.txt',data.join('\n'),'utf-8')
+    fs.writeFileSync('../../../data/v2/studyTimeData-2019.txt',data.join('\r\n'),'utf-8')
 
     function formatDate(date){
-        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+        return `${date.getMonth()+1}-${date.getDate()}`
     }
 }

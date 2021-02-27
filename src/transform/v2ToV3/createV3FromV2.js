@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {compose,array} = require("../../../utils");
 
-const FILE_READ_PATH = '../../../data/v2/studyTimeData-2019.txt';
+const FILE_READ_PATH = '../../../data/v2/studyTimeData-2020.txt';
 
 // console.log("totalDataFor",totalDataFor());
 inputJSON(totalDataFor())
@@ -15,7 +15,7 @@ function totalDataFor(){
     }
 
     function infoListFor(infoText){
-        return infoText.split('\n\r');
+        return infoText.split('\r\n');
     }
 
     function filterEmptyInfo(list){

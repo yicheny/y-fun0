@@ -24,9 +24,9 @@ function saveTimeData(){
         return acc.concat(`${formatDate(date)} === ${x} === ${i>=31 ? infoList[i-31] : '未记录信息'}`);
     },[])
 
-    fs.writeFileSync('../data/studyTimeData-2020.txt',data.join('\n'),'utf-8')
+    fs.writeFileSync('../data/studyTimeData-2020.txt',data.join('\r\n'),'utf-8')
 
     function formatDate(date){
-        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+        return `${date.getMonth()+1}-${date.getDate()}`
     }
 }
