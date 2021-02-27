@@ -1,4 +1,4 @@
- const fs = require('fs');
+const fs = require('fs');
 
 // printInfo('../data/v2/studyTimeData-2019.txt');
 printInfo('../data/v2/studyTimeData-2021.txt');

@@ -1,5 +1,3 @@
-//通用函数
-
 //组合函数
 function compose(...funcs) {
     if (funcs.length === 0) return arg => arg;
@@ -7,4 +5,4 @@ function compose(...funcs) {
     return funcs.reduce((a, b) => (...args) => a(b(...args)))
 }
 
-exports.compose = compose;
+module.exports = compose;

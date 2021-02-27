@@ -1,5 +1,4 @@
-const {daysFor,monthsFor,yearsFor} = require('../../utils/date');
-const {compose} = require('../../utils/common');
+const {date,compose} = require('../../utils');
 
 //作用：计算出生至今的生活实践
 //@params {String} 出生日期
@@ -11,6 +10,6 @@ function liveTimeFor(brithday) {
 }
 
 const birthDay = '1996-11-30';
-console.log(''.concat('出生至今我活了：',compose(daysFor,liveTimeFor)(birthDay),'天'));
-console.log(''.concat('出生至今我活了：',compose(monthsFor,liveTimeFor)(birthDay),'月'));
-console.log(''.concat('出生至今我活了：',compose(yearsFor,liveTimeFor)(birthDay),'年'));
+console.log(''.concat('出生至今我活了：',compose(date.daysFor,liveTimeFor)(birthDay),'天'));
+console.log(''.concat('出生至今我活了：',compose(date.monthsFor,liveTimeFor)(birthDay),'月'));
+console.log(''.concat('出生至今我活了：',compose(date.yearsFor,liveTimeFor)(birthDay),'年'));
