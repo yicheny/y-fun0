@@ -1,23 +1,6 @@
-const fs = require('fs');
+const data = require('../../data/v3/studyDataV3-2021.json')
 
-// printInfo('../data/v2/studyTimeData-2019.txt');
-printInfo('../data/v2/studyTimeData-2021.txt');
-
-//函数
-function createInfo(source){
-    const items = source.split('\n');
-    return items.reduce((acc,x)=>{
-        if(x==='') return acc;
-
-        const [date,time,info] = x.split('===');
-        const item = {
-            date:date.trim(),
-            time:Number(time),
-            info:info.trim()
-        };
-        return acc.concat([item]);
-    },[]);
-}
+printInfo();
 
 function printTimeInfo(times,prefix){
     const time_s = times.reduce((acc,a)=>acc+a);
@@ -29,11 +12,8 @@ function printTimeInfo(times,prefix){
     console.log('共计：'.concat(time_h));
 }
 
-function printInfo(path){
-    console.log(path)
-    const source = fs.readFileSync(path,'utf-8')
-    const info = createInfo(source);
-    const times = info.map(x=>x.time);
+function printInfo(){
+    const times = data.map(x=>Number(x.time));
     printTimeInfo(times,'今年');
     printTimeInfo(times.slice(-30),'本月');
     printTimeInfo(times.slice(-7),'最近一周');

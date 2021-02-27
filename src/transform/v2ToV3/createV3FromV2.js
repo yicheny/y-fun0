@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {compose,array} = require("../../../utils");
 
-const FILE_READ_PATH = '../../../data/v2/studyTimeData-2020.txt';
+const FILE_READ_PATH = '../../../data/v2/studyTimeData-2021.txt';
 
 // console.log("totalDataFor",totalDataFor());
 inputJSON(totalDataFor())
