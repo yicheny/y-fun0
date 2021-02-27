@@ -10,6 +10,6 @@ function liveTimeFor(brithday) {
 }
 
 const birthDay = '1996-11-30';
-console.log(''.concat('出生至今我活了：',compose(date.daysFor,liveTimeFor)(birthDay),'天'));
-console.log(''.concat('出生至今我活了：',compose(date.monthsFor,liveTimeFor)(birthDay),'月'));
-console.log(''.concat('出生至今我活了：',compose(date.yearsFor,liveTimeFor)(birthDay),'年'));
+console.log(''.concat('出生至今我活了：',compose(date.dayCountFor,liveTimeFor)(birthDay),'天'));
+console.log(''.concat('出生至今我活了：',compose(date.monthCountFor,liveTimeFor)(birthDay),'月'));
+console.log(''.concat('出生至今我活了：',compose(date.yearCountFor,liveTimeFor)(birthDay),'年'));
