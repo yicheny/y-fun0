@@ -1,7 +1,7 @@
 const fs = require('fs');
 const {compose,array} = require("../../../utils");
 
-const FILE_READ_PATH = '../../../data/v2/studyTimeData-2021.txt';
+const FILE_READ_PATH = '../../../data/v2/studyTimeData-2019.txt';
 
 // console.log("totalDataFor",totalDataFor());
 inputJSON(totalDataFor())
@@ -15,7 +15,7 @@ function totalDataFor(){
     }
 
     function infoListFor(infoText){
-        return infoText.split('\r\n');
+        return infoText.split('\n\r');
     }
 
     function filterEmptyInfo(list){
@@ -49,15 +49,15 @@ function totalDataFor(){
                 return info.includes("review::")
             }
         }
-
-        function getYearFromPath(){
-            const fileName = array.last(FILE_READ_PATH.split('/'));
-            return (new RegExp(/\d+/ig)).exec(fileName)[0]
-        }
     }
 }
 
 function inputJSON(data){
-    fs.writeFileSync('../../../data/v3/studyDataV3-2019.json',JSON.stringify(data),'utf-8');
+    fs.writeFileSync(`../../../data/v3/studyDataV3-${getYearFromPath()}.json`,JSON.stringify(data),'utf-8');
     console.log("输出成功！")
+}
+
+function getYearFromPath(){
+    const fileName = array.last(FILE_READ_PATH.split('/'));
+    return (new RegExp(/\d+/ig)).exec(fileName)[0]
 }
