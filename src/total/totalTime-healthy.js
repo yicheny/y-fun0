@@ -3,7 +3,7 @@ const fs = require('fs');
 // const splitSymbol = '+';
 const splitSymbol = '-'
 
-printInfo('../data/healthy-2021.txt');
+printInfo('../data/v1/healthy-2021.txt');
 
 //函数
 function createInfo(source){
