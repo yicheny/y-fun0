@@ -1,7 +1,7 @@
-const fs = require('fs');
+ const fs = require('f`q    aas');
 
 // printInfo('../data/studyTimeData-2019.txt');
-printInfo('../data/studyTimeData-2020.txt');
+printInfo('../data/studyTimeData-2021.txt');
 
 //函数
 function createInfo(source){

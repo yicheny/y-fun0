@@ -1,5 +1,5 @@
-const {daysFor,monthsFor,yearsFor} = require('./utils/date');
-const {compose} = require('./utils/common');
+const {daysFor,monthsFor,yearsFor} = require('../../utils/date');
+const {compose} = require('../../utils/common');
 
 //作用：计算出生至今的生活实践
 //@params {String} 出生日期
