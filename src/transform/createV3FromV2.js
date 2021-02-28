@@ -1,7 +1,9 @@
 const fs = require('fs');
-const {compose,array} = require("../../../utils");
+const path = require('path');
+const {compose,array} = require("../../utils");
 
-const FILE_READ_PATH = '../../../data/v2/studyTimeData-2021.txt';
+const READ_PATH = '../../data/v2/studyTimeData-2021.txt';
+const OUT_PATH = `../../data/v3/studyDataV3`;
 
 // console.log("totalDataFor",totalDataFor());
 inputJSON(totalDataFor())
@@ -11,7 +13,7 @@ function totalDataFor(){
     return infoList.map(createInfoItem);
 
     function fileInfoFor(){
-        return fs.readFileSync(FILE_READ_PATH,'utf-8');
+        return fs.readFileSync(path.resolve(__dirname,READ_PATH),'utf-8');
     }
 
     function infoListFor(infoText){
@@ -53,11 +55,16 @@ function totalDataFor(){
 }
 
 function inputJSON(data){
-    fs.writeFileSync(`../../../data/v3/studyDataV3-${getYearFromPath()}.json`,JSON.stringify(data),'utf-8');
+    fs.writeFileSync(getAbsoluteOutPath(),JSON.stringify(data),'utf-8');
     console.log("输出成功！")
+
+    function getAbsoluteOutPath(){
+        return path.resolve(__dirname,`${OUT_PATH}-${getYearFromPath()}.json`);
+    }
 }
 
 function getYearFromPath(){
-    const fileName = array.last(FILE_READ_PATH.split('/'));
+    const fileName = array.last(READ_PATH.split('/'));
     return (new RegExp(/\d+/ig)).exec(fileName)[0]
 }
+
